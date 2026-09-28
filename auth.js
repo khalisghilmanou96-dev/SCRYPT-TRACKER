@@ -1,0 +1,3 @@
+async function requireAdmin(){try{let r=await fetch('/api/me');if(!r.ok)throw 0;let d=await r.json();if(!d.authenticated)throw 0}catch{location.replace('login.html?next='+encodeURIComponent(location.pathname.split('/').pop()+location.search))}}
+async function logoutAdmin(){await fetch('/api/logout',{method:'POST'});location.replace('login.html')}
+requireAdmin();document.addEventListener('DOMContentLoaded',()=>{let b=document.querySelector('#logoutBtn');if(b)b.onclick=logoutAdmin});

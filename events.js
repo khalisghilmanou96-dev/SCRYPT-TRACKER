@@ -1,0 +1,6 @@
+(async()=>{const r=await fetch('/api/data');if(!r.ok){location.replace('login.html');return}const S=await r.json();const A=S.flatMap(s=>(s.events||[]).map(e=>({...e,sessionId:s.id})));const C=A.filter(e=>e.type==='click');const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));const fmt=ms=>ms<1000?ms+'ms':(ms/1000).toFixed(1)+'s';
+
+$('#totalEvents').textContent=A.length;$('#totalClicks').textContent=C.length;$('#totalScrolls').textContent=A.filter(e=>e.type==='scroll').length;$('#totalVisibility').textContent=A.filter(e=>e.type==='visibility').length;
+function detail(e){if(e.type==='click')return `${e.target||'élément'} · x ${e.x??'-'}% · y ${e.y??'-'}%`;if(e.type==='scroll')return `Profondeur ${e.depth}%`;if(e.type==='visibility')return e.state||'';return '—'}
+function render(f='all'){let x=f==='all'?A:A.filter(e=>e.type===f);$('#count').textContent=x.length+' événement(s)';$('#rows').innerHTML=x.map(e=>`<tr><td><a href="sessions.html?id=${encodeURIComponent(e.sessionId)}">${esc(e.sessionId)}</a></td><td>+${fmt(e.t||0)}</td><td><b>${esc(e.type)}</b></td><td>${esc(detail(e))}</td></tr>`).join('')||'<tr><td colspan="4">Aucun événement.</td></tr>'}render();$('#filter').onchange=e=>render(e.target.value);
+})();

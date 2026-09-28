@@ -1,0 +1,12 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PulseTrack — Vue d'ensemble</title><link rel="stylesheet" href="styles.css"><script src="auth.js"></script></head><body class="admin-bg"><aside class="sidebar"><div class="brand"><span class="logo">P</span> PulseTrack</div><small>ESPACE ADMIN</small><a class="navpage active" href="admin.html">▦ Vue d'ensemble</a><a class="navpage " href="sessions.html">◉ Sessions</a><a class="navpage " href="events.html">⌁ Événements</a><a class="navpage " href="reports.html">▧ Rapports</a><div class="side-bottom"><button id="logoutBtn" class="logout-btn">↪ Déconnexion</button><a href="index.html">← Page de tracking</a></div></aside><main class="dashboard">
+<header><div><p class="eyebrow">ANALYTICS</p><h1>Vue d'ensemble</h1><p>Résumé global de l'activité enregistrée.</p></div><button id="reset" class="secondary">Réinitialiser la démo</button></header>
+<section class="kpis">
+<div class="kpi"><span>Sessions</span><b id="sessionsKpi">0</b><small>sessions locales</small></div>
+<div class="kpi"><span>Interactions</span><b id="eventsKpi">0</b><small>événements collectés</small></div>
+<div class="kpi"><span>Clics</span><b id="clicksKpi">0</b><small>sur les éléments</small></div>
+<div class="kpi"><span>Scroll moyen</span><b id="scrollKpi">0%</b><small>profondeur</small></div></section>
+<section class="grid">
+<div class="panel wide"><div class="panel-title"><div><span>Activité</span><small>Événements par type</small></div></div><div id="bars" class="bars"></div></div>
+<div class="panel"><div class="panel-title"><div><span>Répartition</span><small>Types d'interactions</small></div></div><div class="donut"><div><b id="donutTotal">0</b><small>events</small></div></div><div id="legend" class="legend"></div></div>
+<div class="panel wide"><div class="panel-title"><div><span>Sessions récentes</span><small>Accès rapide aux dernières sessions</small></div></div><div class="table-wrap"><table><thead><tr><th>SESSION</th><th>DURÉE</th><th>CLICS</th><th>SCROLL</th><th>ÉVÉNEMENTS</th></tr></thead><tbody id="recentRows"></tbody></table></div></div>
+<div class="panel"><div class="panel-title"><div><span>Heatmap</span><small>Clics agrégés</small></div></div><div id="heatmap" class="heatmap"><span>PAGE</span></div></div></section></main><script src="overview.js"></script></body></html>

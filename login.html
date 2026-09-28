@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PulseTrack — Connexion admin</title><link rel="stylesheet" href="styles.css"></head>
+<body class="login-bg">
+<main class="login-shell">
+  <section class="login-card">
+    <div class="brand login-brand"><span class="logo">P</span> PulseTrack</div>
+    <p class="eyebrow">ESPACE SÉCURISÉ</p>
+    <h1>Connexion administrateur</h1>
+    <p class="login-copy">Accédez aux sessions, événements, rapports et métriques de PulseTrack.</p>
+    <form id="loginForm">
+      <label>Identifiant<input id="username" autocomplete="username" required placeholder="admin"></label>
+      <label>Mot de passe<input id="password" type="password" autocomplete="current-password" required placeholder="••••••••••••"></label>
+      <p id="loginError" class="login-error hidden"></p>
+      <button class="primary login-submit" type="submit">Se connecter →</button>
+    </form>
+    <div class="demo-credentials"><b>Compte initial local</b><br>Identifiant : <code>admin</code><br>Mot de passe : <code>PulseTrackV1!</code></div>
+    <a class="back-link" href="index.html">← Retour à la page de tracking</a>
+  </section>
+</main>
+<script src="login.js"></script></body></html>
